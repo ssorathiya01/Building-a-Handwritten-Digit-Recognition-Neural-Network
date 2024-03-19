@@ -33,7 +33,7 @@ Before training our model, we need to load and preprocess our dataset. We will u
 import os
 from scipy.io import loadmat
 Load data from file
-data = loadmat(os.path.join('Data', 'ex3data1.mat'))
+data = loadmat(os.path.join('Data', 'YourFileName.mat'))
 X, y = data['X'], data['y'].ravel()
 Preprocess the data
 y[y == 10] = 0  # Set the label for digit 0 to 0
