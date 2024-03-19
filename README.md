@@ -12,18 +12,18 @@ Let’s start by building our neural network model using TensorFlow. We will use
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
-# Define the model
+Define the model
 model = Sequential([
  Dense(25, activation='relu', input_shape=(400,)),
  Dense(15, activation='relu'),
  Dense(10, activation='linear')
 ])
-# Compile the model
+Compile the model
 model.compile(
  loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
  optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
 )
-# Train the model
+Train the model
 history = model.fit(X, y, epochs=40)
 Data Preparation:
 
@@ -32,10 +32,10 @@ Before training our model, we need to load and preprocess our dataset. We will u
 
 import os
 from scipy.io import loadmat
-# Load data from file
+Load data from file
 data = loadmat(os.path.join('Data', 'ex3data1.mat'))
 X, y = data['X'], data['y'].ravel()
-# Preprocess the data
+Preprocess the data
 y[y == 10] = 0  # Set the label for digit 0 to 0
 Training the Model:
 Once we have prepared our data, we can train our model using the fit method. During training, we monitor the loss to check the performance of the model. Here is how we can train the model:
